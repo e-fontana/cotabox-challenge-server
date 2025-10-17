@@ -6,9 +6,9 @@ import { User } from 'src/common/decorators/user.decorator';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './user.service';
 
-@Controller('users')
 @Roles('USER')
-@ApiBearerAuth('access_token')
+@ApiBearerAuth()
+@Controller('users')
 @ApiTags('Usuários')
 export class UserController {
   constructor(private readonly service: UserService) {}

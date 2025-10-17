@@ -15,7 +15,7 @@ import { Roles } from 'src/common/decorators/role.decorator';
 
 @Roles('USER')
 @Controller('partners')
-@ApiBearerAuth('access_token')
+@ApiBearerAuth()
 export class PartnersController {
   constructor(private readonly partnersService: PartnersService) {}
 
