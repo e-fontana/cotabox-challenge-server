@@ -8,7 +8,7 @@ import {
   Query,
   UsePipes,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/common/decorators/public.decorator';
 import { Roles } from 'src/common/decorators/role.decorator';
 import { User } from 'src/common/decorators/user.decorator';
@@ -19,8 +19,9 @@ import { AuthRegisterDto } from './dto/register.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { TAuthenticatedUser } from './strategies/jwt-auth.strategy';
 
-@ApiTags('Autenticação')
 @Controller('/auth')
+@ApiSecurity('')
+@ApiTags('Autenticação')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

@@ -1,10 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { Roles } from 'src/common/decorators/role.decorator';
 import { PrismaService } from 'src/common/prisma/prisma.service';
 import { CreatePartnerDto } from './dto/create-partner.dto';
 import { UpdatePartnerDto } from './dto/update-partner.dto';
 
-@Roles('USER')
 @Injectable()
 export class PartnersService {
   constructor(private readonly prisma: PrismaService) {}

@@ -7,11 +7,15 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { CreatePartnerDto } from './dto/create-partner.dto';
 import { UpdatePartnerDto } from './dto/update-partner.dto';
 import { PartnersService } from './partners.service';
+import { Roles } from 'src/common/decorators/role.decorator';
 
+@Roles('USER')
 @Controller('partners')
+@ApiBearerAuth('access_token')
 export class PartnersController {
   constructor(private readonly partnersService: PartnersService) {}
 
